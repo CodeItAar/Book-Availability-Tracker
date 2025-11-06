@@ -1,21 +1,19 @@
 public class Book {
     private String title;
     private String author;
-    private boolean isAvailable;
+    private boolean available;
 
-    public Book(String title, String author) {
+    public Book(String title, String author, boolean available) {
         this.title = title;
         this.author = author;
-        this.isAvailable = true;
+        this.available = available;
     }
 
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public boolean isAvailable() { return isAvailable; }
-
-    public void setAvailable(boolean status) { this.isAvailable = status; }
+    public String getTitle() {
+        return title;
+    }
 
     public String toString() {
-        return "\"" + title + "\" by " + author + " - " + (isAvailable ? "Available" : "Not Available");
+        return title + " by " + author + " - " + (available ? "Available" : "Not Available");
     }
 }

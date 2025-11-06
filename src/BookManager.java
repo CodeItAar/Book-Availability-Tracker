@@ -8,28 +8,13 @@ public class BookManager {
         books.add(book);
     }
 
-    public void updateBookStatus(String title, boolean status) {
-        for (Book book : books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                book.setAvailable(status);
+    public List<Book> searchBooks(String query) {
+        List<Book> results = new ArrayList<>();
+        for (Book b : books) {
+            if (b.getTitle().toLowerCase().contains(query)) {
+                results.add(b);
             }
         }
-    }
-
-    public Book searchBookByTitle(String title) {
-        for (Book book : books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                return book;
-            }
-        }
-        return null;
-    }
-
-    public List<Book> getAvailableBooks() {
-        List<Book> available = new ArrayList<>();
-        for (Book book : books) {
-            if (book.isAvailable()) available.add(book);
-        }
-        return available;
+        return results;
     }
 }
